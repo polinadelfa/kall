@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор квадрата</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор квадрата</h1>
+    <label for="side">Введите длину стороны квадрата:</label>
+    <input type="number" id="side" placeholder="Сторона" required>
+    <button onclick="calculate()">Рассчитать</button>
+
+    <h2>Результаты:</h2>
+    <p id="area">Площадь: </p>
+    <p id="perimeter">Периметр: </p>
+
+    <script>
+        function calculate() {
+            const side = parseFloat(document.getElementById('side').value);
+            if (isNaN(side) || side <= 0) {
+                alert("Пожалуйста, введите положительное число.");
+                return;
+            }
+
+            const area = side * side; // Площадь
+            const perimeter = 4 * side; // Периметр
+
+            document.getElementById('area').innerText = `Площадь: ${area}`;
+            document.getElementById('perimeter').innerText = `Периметр: ${perimeter}`;
+        }
+    </script>
+</body>
+</html>
